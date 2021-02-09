@@ -1,0 +1,71 @@
+//socket in client
+Socket socket1 = new Socket("localhost" , 4040);
+//socket in server
+ServerSocket serversocket1 = new ServerSocket(4040); 
+Socket client1 = serversocket1.accept()
+Socket client2 = serversocket1.accept();
+
+
+
+//DataInputStream to get data
+DataInputStream Get = new DataInputStream(socket1.getInputStream());
+System.out.println(Get.readUTF());
+
+
+//DataOutputStream to send data
+DataOutputStream Send = new DataOutputStream(socket1.getOutputStream());
+Send.writeUTF("hi");
+
+
+
+//read integer
+Scanner input = new Scanner(System.in);
+String n = input.nextLine();
+int number = Integer.parseInt(n);
+
+
+//read double
+Scanner input = new Scanner(System.in);
+String n = input.nextLine();
+double number = Double.parseDouble(n);
+
+
+//read string
+Scanner input = new Scanner(System.in);
+String n = input.nextLine();
+
+
+
+
+// make a random number 
+int min = 1;
+int max = 100;
+int random = (int)(Math.random() * (max - min + 1) + min);
+Integer Random_Number = new Integer(random);
+
+
+//for thread 
+1- Server implements Runnable 
+2- static ServerSocket ServSock;
+   static  Socket Client;
+3- public Server() throws IOException {
+      Client = ServSock.accept();
+   }
+4- ServSock =new ServerSocket(2233);
+   Thread T1=new Thread(new Server());
+   T1.start();
+   Thread T2=new Thread(new Server());
+   T2.start();  
+5- @Override
+   public void run() {
+   }
+
+
+
+
+
+
+
+
+        
+
